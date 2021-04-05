@@ -26,5 +26,11 @@ namespace StudioPasokon.ForEverProject.DataTypes
 
         /// <inheritdoc />
         public override string ToString() => _internalString;
+
+        /// <summary>
+        /// Implecit conversion from a <see cref="MandatoryString"/> to an ordinary string.
+        /// </summary>
+        /// <param name="ms"></param>
+        public static implicit operator string(MandatoryString ms) => ms.ToString();
     }
 }

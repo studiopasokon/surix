@@ -15,13 +15,16 @@ namespace StudioPasokon.ForEverProject.DataTypes.Tests
         [InlineData("spaces at the end   ")]
         [InlineData("   beginning with spaces")]
         [InlineData("z")]
-        public void Construct_WithProperData_ReturnsObject(string data)
+        public void Construct_WithProperData_ReturnsMandatoryString(string data)
         {
             // Arrange / Act.
             var mandatoryString = new MandatoryString(data);
 
             // Assert.
-            mandatoryString.ToString().Should().Be(data);
+            mandatoryString.ToString().Should().Be(data);   // Explicit ToString().
+
+            string tmpString = mandatoryString;             // Implicit ToString().
+            tmpString.Should().Be(data);
         }
 
         [Theory]
